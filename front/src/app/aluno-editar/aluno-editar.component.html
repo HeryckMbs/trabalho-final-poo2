@@ -1,0 +1,59 @@
+<div class="content">
+  <mat-card-title>Aluno</mat-card-title>
+  <br>
+  <mat-card-subtitle><br>Atualizar aluno</mat-card-subtitle>
+  <mat-divider></mat-divider>
+  <br>
+  <br>
+  <div class="input1">
+      <mat-form-field appearance="outline">
+          <mat-label>Id.</mat-label>
+          <input matInput id="idcurso" name="idcurso" disabled [(ngModel)]="Aluno.idaluno">
+          <mat-icon matSuffix>edit</mat-icon>
+      </mat-form-field>
+  </div>
+  <div class="input2">
+      <mat-form-field appearance="outline">
+          <mat-label>Nome do Curso</mat-label>
+          <input matInput id="nomecurso" name="nomecurso" required [(ngModel)]="Aluno.nome">
+          <mat-icon matSuffix>edit</mat-icon>
+      </mat-form-field>
+  </div>
+  <div class="input1">
+    <mat-form-field>
+      <mat-label>Sexo</mat-label>
+      <mat-select [(ngModel)]="Aluno.sexo" name="sexo">
+        <mat-option *ngFor="let sexo of sexos" [value]="sexo.value">
+          {{sexo.viewValue}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+  </div>
+<div class="input1">
+  <mat-form-field>
+    <mat-label>Data de nascimento</mat-label>
+    <input matInput required [(ngModel)]="Aluno.dt_nasc" [matDatepicker]="picker">
+    <mat-hint>DD/MM/YYYY</mat-hint>
+    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+  </div>
+  <div class="input1">
+    <mat-form-field>
+      <mat-label>Curso</mat-label>
+      <mat-select [(value)]="selected.idcurso" name="curso">
+        <mat-option *ngFor="let curso of cursos" [value]="curso.idcurso">
+          {{curso.nomecurso}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+  </div>
+  <div class="button1" (click)="atualizar()">
+      Atualizar <img class="img-btn" src="assets/img/check_box.png">
+  </div>
+  <div class="button2" (click)="cancelar()">
+      Cancelar <img class="img-btn" src="assets/img/cancel.png">
+  </div>
+</div>
